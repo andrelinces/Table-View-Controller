@@ -15,6 +15,12 @@ class ViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //Remove Separação das celulas
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        //Remove seleção de clique
+        self.tableView.allowsSelection = false
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -25,10 +31,11 @@ class ViewController: UITableViewController{
         return dados.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //var _: IndexPath.Index
+
         let celulaReuso = "celulaReuso"
         let celula = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath)
         celula.textLabel?.text = dados [indexPath.row]
+        
         return celula
         
     }
